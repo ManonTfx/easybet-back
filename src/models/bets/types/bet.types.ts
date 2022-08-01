@@ -24,11 +24,14 @@ export default abstract class IBet {
   @Field(() => String)
     category: string;
 
-  @Field(() => Float)
-    result: number;
+  @Field(() => Boolean, { nullable: true })
+    result?: boolean | null;
 
   @Field(() => String)
-    date: Date;
+    date: String;
+
+  @Field(() => Date)
+    createdAt: Date;
 
   @Field(() => [IUserBet])
     UserBet: IUserBet[];

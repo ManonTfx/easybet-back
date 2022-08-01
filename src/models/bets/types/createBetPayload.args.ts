@@ -20,9 +20,9 @@ export default abstract class ICreateBetPayload {
   @Field(() => String)
     category: string;
 
-  @Field(() => Float)
-    result: number;
+  @Field(() => Boolean, { nullable: true })
+    result?: boolean;
 
   @Field(() => String)
-    date: Date;
+    date: string;
 }

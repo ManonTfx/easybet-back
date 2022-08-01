@@ -45,8 +45,9 @@ model Bet {
     bookmaker String
     odd       Float
     category  String
-    result    Float
-    date      DateTime  @default(now())
+    result    Boolean?
+    date      String
+    createdAt DateTime  @default(now())
     UserBet   UserBet[]
 }
 
