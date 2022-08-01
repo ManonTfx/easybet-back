@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import { ObjectType, Field, ID } from 'type-graphql';
+import { IRole } from './userRole.enum';
 
 @ObjectType()
 export default abstract class IUser {
@@ -23,4 +24,7 @@ export default abstract class IUser {
 
   @Field()
     updatedAt: Date;
+
+  @Field()
+    role: IRole;
 }

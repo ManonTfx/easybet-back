@@ -6,6 +6,7 @@ import {
 
 import IUserPayload from './types/payload.args';
 import IUserPasswordPayload from './types/payloadPassword.types';
+import IUserRolePayload from './types/paylodRole.types';
 import IUser from './types/user.type';
 import UserService from './user.service';
 
@@ -15,13 +16,11 @@ export default class UserResolver {
 
   // * READ
   @Query(() => [IUser])
-  @UseMiddleware(authGuard)
   async getAllUsers(): Promise<IUser[]> {
     return UserService().allUsers();
   }
 
   @Query(() => IUser)
-  @UseMiddleware(authGuard)
   async getSelf(
     @Ctx() context: IContext,
   ): Promise<IUser> {
@@ -50,6 +49,15 @@ export default class UserResolver {
       @Arg('id') id: string,
   ):Promise<IUser |null> {
     return UserService().updateUserById(payload, id);
+  }
+
+  // * UPDATE USER ROLE
+  @Mutation(() => IUser)
+  async updateUserRole(
+    @Args()payload: IUserRolePayload,
+      @Arg('id') id: string,
+  ):Promise<IUser |null | undefined> {
+    return UserService().updateUserRole(payload, id);
   }
 
   // * UPDATE USER PASSWORD

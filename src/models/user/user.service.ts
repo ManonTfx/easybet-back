@@ -5,6 +5,7 @@ import { log } from '../../utils/logger/logger';
 import UserPrismaDto from './dto/userDto.prisma';
 import IUserPayload from './types/payload.args';
 import IUserPasswordPayload from './types/payloadPassword.types';
+import IUserRolePayload from './types/paylodRole.types';
 import IUser from './types/user.type';
 
 export default function UserService() {
@@ -23,6 +24,13 @@ export default function UserService() {
     return user;
   }
 
+  // ** UPDATE USER ROLE
+  // eslint-disable-next-line consistent-return
+  async function updateUserRole(payload: IUserRolePayload,
+    id: string): Promise<IUser | null | undefined> {
+    const updatedUserRole = await UserPrismaDto().updateUserRole({ id }, payload.role);
+    return updatedUserRole;
+  }
   // ** UPDATE USER PASSWORD
   // eslint-disable-next-line consistent-return
   async function updateUserPassword(
@@ -90,5 +98,6 @@ export default function UserService() {
     deleteById,
     updateUserById,
     updateUserPassword,
+    updateUserRole,
   };
 }

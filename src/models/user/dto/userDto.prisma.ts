@@ -4,6 +4,7 @@ import {
 import SignupArgs from '../../../auth/args/signup.args';
 import { prisma } from '../../../utils/prisma';
 import IUserPayload from '../types/payload.args';
+import { IRole } from '../types/userRole.enum';
 
 export default function UserPrismaDto() {
   // ** CREATE
@@ -51,6 +52,19 @@ export default function UserPrismaDto() {
     });
   }
 
+  // ** UPDATE USER ROLE
+  async function updateUserRole(
+    id: Prisma.UserWhereUniqueInput,
+    role: IRole,
+  ): Promise<User | null> {
+    return prisma.user.update({
+      where: id,
+      data: {
+        role,
+      },
+    });
+  }
+
   // ** UPDATE USER PASSWORD
   async function updateUserPassword(
     id: Prisma.UserWhereUniqueInput,
@@ -81,5 +95,6 @@ export default function UserPrismaDto() {
     deleteOneById,
     updateUser,
     updateUserPassword,
+    updateUserRole,
   };
 }

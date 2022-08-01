@@ -8,6 +8,7 @@ import { useServer } from 'graphql-ws/lib/use/ws';
 import AuthResolver from './auth/auth.resolver';
 import UserResolver from './models/user/user.resolver';
 import appContext from './utils/context/interface/context';
+import UserbetResolver from './models/userBet/userBet.resolver';
 
 async function createApolloServer(httpServer: Server) {
   // Using TypeGraphQL, build GraphQL schema automatically
@@ -15,6 +16,7 @@ async function createApolloServer(httpServer: Server) {
     resolvers: [
       UserResolver,
       AuthResolver,
+      UserbetResolver,
     ],
   });
 

@@ -11,7 +11,8 @@
     "test": "jest",
     "prisma:generate": "prisma generate",
     "prisma:sandbox": "ts-node-dev -r dotenv/config --transpile-only sandbox.ts",
-    "prisma:deploy": "prisma migrate deploy"
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:dbpush": "prisma db push"
   },
   "license": "MIT",
   "dependencies": {
