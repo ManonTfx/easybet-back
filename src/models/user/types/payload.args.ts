@@ -16,4 +16,7 @@ export default abstract class IUserPayload {
 
   @Field(() => String, { nullable: true })
     avatar?: string | null;
+
+  @Field(() => String, { nullable: true })
+    role?: string | null;
 }
