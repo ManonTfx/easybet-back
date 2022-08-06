@@ -9,6 +9,15 @@ export default function UserPrismaDto() {
     return prisma.userBet.findMany();
   }
 
+  // ** READ ONE
+  async function oneUserBetById(
+    id: Prisma.UserBetWhereUniqueInput,
+  ): Promise<UserBet | null> {
+    return prisma.userBet.findUnique({
+      where: id,
+    });
+  }
+
   // ** CREATE
   async function createUserbet(payload: ICreateUserbetPayload) {
     return prisma.userBet.create({
@@ -47,5 +56,6 @@ export default function UserPrismaDto() {
     createUserbet,
     updateUserbet,
     deleteOneUserBetById,
+    oneUserBetById,
   };
 }

@@ -16,6 +16,13 @@ export default class UserbetResolver {
     return UserBetService().allUserBets();
   }
 
+  @Query(() => IUserBet)
+  async getUserBetByID(
+    @Arg('id') id: string,
+  ): Promise<IUserBet> {
+    return UserBetService().findUserBetById(id);
+  }
+
   // ** CREATE
   @Mutation(() => IUserBet)
   async createUserBet(@Args() payload: ICreateUserbetPayload): Promise<IUserBet> {

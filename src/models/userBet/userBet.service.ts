@@ -6,11 +6,19 @@ import IUserBet from './types/userBet.type';
 export default function UserService() {
   // ** READ
   async function allUserBets(): Promise<IUserBet[]> {
-    const users = await UserBetPrismaDto().getAll();
-    if (!users) {
+    const userBets = await UserBetPrismaDto().getAll();
+    if (!userBets) {
       throw new Error('No users found');
     }
-    return users;
+    return userBets;
+  }
+
+  async function findUserBetById(id: string): Promise<IUserBet> {
+    const userBet = await UserBetPrismaDto().oneUserBetById({ id });
+    if (!userBet) {
+      throw new Error('User not found');
+    }
+    return userBet;
   }
 
   // ** CREATE
@@ -41,5 +49,6 @@ export default function UserService() {
     createUserBet,
     updateUserbetById,
     deleteUserbetById,
+    findUserBetById,
   };
 }
