@@ -43,7 +43,7 @@ export default class UserResolver {
 
   // * UPDATE
   @Mutation(() => IUser)
-  @UseMiddleware(authGuard)
+  // @UseMiddleware(authGuard)
   async updateUser(
     @Args()payload: IUserPayload,
       @Arg('id') id: string,
@@ -62,7 +62,7 @@ export default class UserResolver {
 
   // * UPDATE USER PASSWORD
   @Mutation(() => IUser)
-  @UseMiddleware(authGuard)
+  // @UseMiddleware(authGuard)
   async updateUserPassword(
     @Args()payload: IUserPasswordPayload,
       @Arg('id') id: string,
