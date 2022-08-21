@@ -20,4 +20,7 @@ export default abstract class IArticle {
 
   @Field(() => String)
     img: string;
+
+  @Field(() => String)
+    userId: string;
 }

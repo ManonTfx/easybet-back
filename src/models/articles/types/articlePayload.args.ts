@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import {
-  Field, Float, ArgsType,
+  Field, ArgsType,
 } from 'type-graphql';
 
 @ArgsType()
@@ -14,6 +14,9 @@ export default abstract class IArticlePayload {
   @Field(() => String)
     contents: string;
 
-  @Field(() => Float)
+  @Field(() => String)
     img: string;
+
+  @Field(() => String)
+    userId: string;
 }

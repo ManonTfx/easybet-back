@@ -5,6 +5,7 @@ import {
 import { prisma } from '../../../utils/prisma';
 import IArticle from '../types/article.types';
 import IArticlePayload from '../types/articlePayload.args';
+import IUpdateArticlePayload from '../types/articleUpdatePayload.args';
 
 export default function ArticlePrismaDto() {
   // ** READ ALL
@@ -18,7 +19,7 @@ export default function ArticlePrismaDto() {
 
   // ** READ ONE
   async function oneArticleById(
-    id: Prisma.BetWhereUniqueInput,
+    id: Prisma.ArticlesWhereUniqueInput,
   ): Promise<IArticle | null> {
     return prisma.articles.findUnique({
       where: id,
@@ -45,7 +46,7 @@ export default function ArticlePrismaDto() {
 
   // ** UPDATE
   // eslint-disable-next-line max-len
-  async function updateArticle(payload: IArticlePayload, id : Prisma.ArticlesWhereUniqueInput):
+  async function updateArticle(payload: IUpdateArticlePayload, id : Prisma.ArticlesWhereUniqueInput):
   Promise<IArticle | null > {
     return prisma.articles.update({
       where: id,

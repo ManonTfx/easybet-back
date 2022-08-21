@@ -1,6 +1,7 @@
 import ArticlePrismaDto from './dto/articlesDto.prisma';
 import IArticle from './types/article.types';
 import IArticlePayload from './types/articlePayload.args';
+import IUpdateArticlePayload from './types/articleUpdatePayload.args';
 
 export default function ArticlesService() {
   // ** CREATE
@@ -12,7 +13,7 @@ export default function ArticlesService() {
     return article;
   }
   // ** UPDATE
-  async function updateArticle(payload: IArticlePayload, id: string): Promise<IArticle> {
+  async function updateArticle(payload: IUpdateArticlePayload, id: string): Promise<IArticle> {
     const article = await ArticlePrismaDto().updateArticle(payload, { id });
     if (!article) {
       throw new Error('Article not found');

@@ -10,6 +10,7 @@ import UserResolver from './models/user/user.resolver';
 import appContext from './utils/context/interface/context';
 import UserbetResolver from './models/userBet/userBet.resolver';
 import BetResolver from './models/bets/bets.resolver';
+import ArticlesResolver from './models/articles/articles.resolver';
 
 async function createApolloServer(httpServer: Server) {
   // Using TypeGraphQL, build GraphQL schema automatically
@@ -19,6 +20,7 @@ async function createApolloServer(httpServer: Server) {
       AuthResolver,
       UserbetResolver,
       BetResolver,
+      ArticlesResolver,
     ],
   });
 

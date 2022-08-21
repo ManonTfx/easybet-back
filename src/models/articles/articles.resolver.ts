@@ -4,9 +4,10 @@ import {
 import IArticle from './types/article.types';
 import ArticlesService from './articles.service';
 import IArticlePayload from './types/articlePayload.args';
+import IUpdateArticlePayload from './types/articleUpdatePayload.args';
 
 @Resolver(() => IArticle)
-export default class BetResolver {
+export default class ArticlesResolver {
   // ** CREATE
   @Mutation(() => IArticle)
   async createArticle(@Args() payload: IArticlePayload): Promise<IArticle> {
@@ -15,7 +16,7 @@ export default class BetResolver {
 
   // ** UPDATE
   @Mutation(() => IArticle)
-  async updateArticle(@Arg('payload') payload: IArticlePayload, @Arg('id') id: string): Promise<IArticle> {
+  async updateArticle(@Arg('payload') payload: IUpdateArticlePayload, @Arg('id') id: string): Promise<IArticle> {
     return ArticlesService().updateArticle(payload, id);
   }
 
