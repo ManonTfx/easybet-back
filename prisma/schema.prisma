@@ -54,7 +54,7 @@ model Bet {
 model Articles {
     id       String   @id @default(uuid())
     category String
-    title    Float
+    title    String
     date     DateTime @default(now())
     contents String
     img      String

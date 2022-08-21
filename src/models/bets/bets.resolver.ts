@@ -35,7 +35,7 @@ export default class BetResolver {
 
   // ** DELETE
   @Mutation(() => IBet)
-  async deleteTagById(
+  async deleteBetById(
     @Arg('id') id: string,
   ): Promise<IBet> {
     return BetService().deleteBetById(id);
