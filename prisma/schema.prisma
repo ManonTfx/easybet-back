@@ -42,6 +42,7 @@ model UserBet {
 model Bet {
     id        String    @id @default(uuid())
     name      String
+    type      String
     stake     Float
     bookmaker String
     odd       Float

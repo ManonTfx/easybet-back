@@ -27,4 +27,7 @@ export default abstract class IUpdateBetPayload {
 
   @Field(() => String, { nullable: true })
     date?: string;
+
+  @Field(() => String, { nullable: true })
+    type: string;
 }

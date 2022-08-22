@@ -35,4 +35,7 @@ export default abstract class IBet {
 
   @Field(() => [IUserBet])
     UserBet: IUserBet[];
+
+  @Field(() => String)
+    type: String;
 }

@@ -20,6 +20,9 @@ export default abstract class ICreateBetPayload {
   @Field(() => String)
     category: string;
 
+  @Field(() => String)
+    type: string;
+
   @Field(() => Float, { nullable: true })
     result?: number;
 
