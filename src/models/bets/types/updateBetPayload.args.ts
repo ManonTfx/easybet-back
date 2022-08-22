@@ -22,8 +22,8 @@ export default abstract class IUpdateBetPayload {
   @Field(() => String, { nullable: true })
     category?: string;
 
-  @Field(() => Boolean, { nullable: true })
-    result?: boolean;
+  @Field(() => Float, { nullable: true })
+    result?: number;
 
   @Field(() => String, { nullable: true })
     date?: string;

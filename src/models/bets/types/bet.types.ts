@@ -24,8 +24,8 @@ export default abstract class IBet {
   @Field(() => String)
     category: string;
 
-  @Field(() => Boolean, { nullable: true })
-    result?: boolean | null;
+  @Field(() => Float, { nullable: true })
+    result?: number | null;
 
   @Field(() => String)
     date: String;
