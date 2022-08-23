@@ -1,4 +1,7 @@
 import { ApolloServer, gql } from 'apollo-server-express';
+import { createServer } from 'http';
+import createApolloServer from 'src/apolloServer';
+import express from 'express';
 import { prisma } from '../../utils/prisma';
 // import createApolloServer from '../../apolloServer';
 
@@ -6,9 +9,11 @@ let server: ApolloServer;
 
 let id: string;
 let isDeleted: boolean;
+const app = express();
+const httpServer = createServer(app);
 
 beforeAll(async () => {
-  // server = await createApolloServer();
+  server = await createApolloServer(httpServer);
 });
 
 describe('Articles Resolver', () => {
