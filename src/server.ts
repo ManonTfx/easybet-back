@@ -41,17 +41,17 @@ async function startServer() {
   // * Startup server
   try {
     await server.start();
-    server.applyMiddleware({
-      app,
-      cors: {
-        credentials: true,
-        origin: [
-          process.env.FRONTEND_URL || 'http://localhost:3000',
-          // TODO: remove development endpoints once the app is ready for production
-          'https://studio.apollographql.com',
-        ],
-      },
-    });
+    // server.applyMiddleware({
+    //   app,
+    //   cors: {
+    //     credentials: true,
+    //     origin: [
+    //       process.env.FRONTEND_URL || 'http://localhost:3000',
+    //       // TODO: remove development endpoints once the app is ready for production
+    //       'https://studio.apollographql.com',
+    //     ],
+    //   },
+    // });
 
     httpServer.listen(PORT, () => {
       log.info('Server ready', { port: PORT });
