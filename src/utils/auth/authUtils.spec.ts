@@ -1,6 +1,5 @@
 import { ONE_DAY } from 'src/constants/time';
 import { isTokenExpired } from './authUtils';
-
 // Setup Date.now() with a fixed value to test token expiration
 beforeEach(() => {
   global.Date.now = jest.fn(() => 1600000000000);
