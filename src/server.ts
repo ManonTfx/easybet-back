@@ -46,8 +46,7 @@ async function startServer() {
       cors: {
         credentials: true,
         origin: [
-          'https://easybet-client-mhunzxyly-manontfx.vercel.app/ ',
-          'http://localhost:3000',
+          'https://easybet-client-mhunzxyly-manontfx.vercel.app/ ' || 'http://localhost:3000',
           // TODO: remove development endpoints once the app is ready for production
           'https://studio.apollographql.com',
         ],
