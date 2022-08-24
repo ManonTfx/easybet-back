@@ -1,8 +1,8 @@
 import 'reflect-metadata';
-import IUserBet from 'src/models/userBet/types/userBet.type';
 import {
   ObjectType, Field, ID, Float,
 } from 'type-graphql';
+import IUserBet from '../../userBet/types/userBet.type';
 
 @ObjectType()
 export default abstract class IBet {
