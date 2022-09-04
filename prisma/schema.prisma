@@ -26,6 +26,7 @@ model User {
     updatedAt DateTime   @default(now())
     UserBet   UserBet[]
     role      Role       @default(USER)
+    avatar    String?
     Articles  Articles[]
 }
 
