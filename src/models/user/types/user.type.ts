@@ -25,7 +25,7 @@ export default abstract class IUser {
   @Field()
     updatedAt: Date;
 
-  @Field(() => String, { nullable: true })
+  @Field(() => String)
     avatar?: string | null;
 
   @Field()
