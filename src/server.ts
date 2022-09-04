@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import dotenv from 'dotenv';
 import rateLimit from 'express-rate-limit';
+import cors from 'cors';
 import { log } from './utils/logger/logger';
 import createApolloServer from './apolloServer';
 
@@ -35,23 +36,25 @@ async function startServer() {
   app.use('/graphql', rateLimiter);
   app.use(express.json()); // Body parser
 
+  app.use(cors());
+
   const httpServer = createServer(app);
   // Using TypeGraphQL, build GraphQL schema automatically
   const server = await createApolloServer(httpServer);
   // * Startup server
   try {
     await server.start();
-    server.applyMiddleware({
-      app,
-      cors: {
-        credentials: true,
-        origin: [
-          process.env.FRONTEND_URL || 'https://easybet.site',
-          // TODO: remove development endpoints once the app is ready for production
-          'https://studio.apollographql.com',
-        ],
-      },
-    });
+    // server.applyMiddleware({
+    //   app,
+    //   cors: {
+    //     credentials: true,
+    //     origin: [
+    //       process.env.FRONTEND_URL || 'https://easybet.site',
+    //       // TODO: remove development endpoints once the app is ready for production
+    //       'https://studio.apollographql.com',
+    //     ],
+    //   },
+    // });
 
     httpServer.listen(PORT, () => {
       log.info('Server ready', { port: PORT });
