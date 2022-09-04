@@ -4,6 +4,7 @@ import { comparePassword, hashPassword } from 'src/utils/auth/bcrypt';
 import { log } from '../../utils/logger/logger';
 import UserPrismaDto from './dto/userDto.prisma';
 import IUserPayload from './types/payload.args';
+import IUserAvatarPayload from './types/payloadAvatar.args';
 import IUserPasswordPayload from './types/payloadPassword.types';
 import IUserRolePayload from './types/paylodRole.types';
 import IUser from './types/user.type';
@@ -31,6 +32,15 @@ export default function UserService() {
     const updatedUserRole = await UserPrismaDto().updateUserRole({ id }, payload.role);
     return updatedUserRole;
   }
+
+  // ** UPDATE USER AVATAR
+  // eslint-disable-next-line consistent-return
+  async function updateUserAvatar(payload: IUserAvatarPayload,
+    id: string): Promise<IUser | null | undefined> {
+    const updatedUserRole = await UserPrismaDto().updateUserAvatar({ id }, payload.avatar);
+    return updatedUserRole;
+  }
+
   // ** UPDATE USER PASSWORD
   // eslint-disable-next-line consistent-return
   async function updateUserPassword(
@@ -99,5 +109,6 @@ export default function UserService() {
     updateUserById,
     updateUserPassword,
     updateUserRole,
+    updateUserAvatar,
   };
 }

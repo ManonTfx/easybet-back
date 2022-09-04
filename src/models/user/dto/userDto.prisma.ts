@@ -65,6 +65,18 @@ export default function UserPrismaDto() {
     });
   }
 
+  // ** UPDATE USER AVATAR
+  async function updateUserAvatar(
+    id: Prisma.UserWhereUniqueInput,
+    avatar: string,
+  ): Promise<User | null> {
+    return prisma.user.update({
+      where: id,
+      data: {
+        avatar,
+      },
+    });
+  }
   // ** UPDATE USER PASSWORD
   async function updateUserPassword(
     id: Prisma.UserWhereUniqueInput,
@@ -96,5 +108,6 @@ export default function UserPrismaDto() {
     updateUser,
     updateUserPassword,
     updateUserRole,
+    updateUserAvatar,
   };
 }

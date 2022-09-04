@@ -28,6 +28,7 @@ describe('AuthResolver', () => {
           updatedAt: 1 as unknown as Date,
           token: 'token',
           role: 'USER',
+          avatar: 'avatar',
         }));
       expect(
         await resolver.signup({
@@ -53,6 +54,8 @@ describe('AuthResolver', () => {
           updatedAt: 2 as unknown as Date,
           token: 'token',
           role: 'USER',
+          avatar: 'avatar',
+
         }));
 
       expect(

@@ -28,4 +28,7 @@ export default abstract class IUserWithToken {
 
   @Field(() => String)
     role: string;
+
+  @Field(() => String)
+    avatar: string;
 }

@@ -5,6 +5,7 @@ import {
 } from 'type-graphql';
 
 import IUserPayload from './types/payload.args';
+import IUserAvatarPayload from './types/payloadAvatar.args';
 import IUserPasswordPayload from './types/payloadPassword.types';
 import IUserRolePayload from './types/paylodRole.types';
 import IUser from './types/user.type';
@@ -58,6 +59,15 @@ export default class UserResolver {
       @Arg('id') id: string,
   ):Promise<IUser |null | undefined> {
     return UserService().updateUserRole(payload, id);
+  }
+
+  // * UPDATE USER AVATAR
+  @Mutation(() => IUser)
+  async updateUserAvatar(
+    @Args()payload: IUserAvatarPayload,
+      @Arg('id') id: string,
+  ):Promise<IUser |null | undefined> {
+    return UserService().updateUserAvatar(payload, id);
   }
 
   // * UPDATE USER PASSWORD
