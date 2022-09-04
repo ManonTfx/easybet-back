@@ -10,6 +10,7 @@ const dummies: IUser[] = [
     createdAt: new Date(),
     updatedAt: new Date(),
     role: 'SUPERADMIN',
+    avatar: '',
   },
 ];
 
