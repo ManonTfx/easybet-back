@@ -17,7 +17,7 @@ export default function BetPrismaDto() {
   async function getAllBets(): Promise<BetWithDetails[]> {
     return prisma.bet.findMany({
       orderBy: {
-        date: 'asc',
+        date: 'desc',
       },
       include: {
         UserBet: true,
